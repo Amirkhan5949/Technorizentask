@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TechnorizenTask</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="don_t_have_any_account">Don\'t have any account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="enter_password">Enter password</string>
+    <string name="email_adress">Email Adress</string>
+    <string name="in">Sign In!</string>
+    <string name="pass">Enter correct password</string>
+    <string name="corr">Enter correct email</string>
+</resources>
