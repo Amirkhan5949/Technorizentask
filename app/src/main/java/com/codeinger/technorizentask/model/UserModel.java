@@ -1,17 +1,26 @@
 package com.codeinger.technorizentask.model;
 
+import android.graphics.Bitmap;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity (tableName = "user_table")
+@Entity()
 public class UserModel {
 
-     @PrimaryKey()
-     private int U_id;
-    private String name,last_name,mobile_no,email,password;
-    private String profile ;
+    @PrimaryKey(autoGenerate = true)
+    private long U_id;
+    private String name;
+    private String last_name;
+    private String mobile_no;
+    private String email;
+    private String password;
+    private Bitmap profile;
 
-    public UserModel(int u_id, String name, String last_name, String mobile_no, String email, String password, String profile) {
+    public UserModel() {
+    }
+
+    public UserModel(long u_id, String name, String last_name, String mobile_no, String email, String password, Bitmap profile) {
         U_id = u_id;
         this.name = name;
         this.last_name = last_name;
@@ -34,7 +43,7 @@ public class UserModel {
                 '}';
     }
 
-    public int getU_id() {
+    public long getU_id() {
         return U_id;
     }
 
@@ -82,11 +91,11 @@ public class UserModel {
         this.password = password;
     }
 
-    public String getProfile() {
+    public Bitmap getProfile() {
         return profile;
     }
 
-    public void setProfile(String profile) {
+    public void setProfile(Bitmap profile) {
         this.profile = profile;
     }
 }

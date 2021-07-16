@@ -7,8 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#3236E9</color>
-
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#4885ed</color>
 
     <color name="background">#1c1e39</color>
     <color name="light_white">#f5f5f5</color>
@@ -21,4 +22,7 @@
     <color name="green">#45C186</color>
     <color name="darkgreen">#11998e</color>
     <color name="lightgreen">#38ef7d</color>
+    <color name="gr">#F1F1F1</color>
+    <color name="lig">#a4a8ad</color>
+    <color name="bl">#4885ed</color>
 </resources>

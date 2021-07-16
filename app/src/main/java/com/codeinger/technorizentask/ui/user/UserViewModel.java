@@ -1,9 +1,10 @@
-package com.codeinger.technorizentask.ui.product;
+ package com.codeinger.technorizentask.ui.user;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.codeinger.technorizentask.model.ProductModel;
 import com.codeinger.technorizentask.model.UserModel;
 import com.codeinger.technorizentask.repository.UserRepo;
 
@@ -26,8 +27,8 @@ public class UserViewModel extends ViewModel {
         this.userRepo = userRepo;
     }
 
-    public void addUser(UserModel userModel){
-        userRepo.addUser(userModel);
+    public long addUser(UserModel userModel){
+        return userRepo.addUser(userModel);
     }
     public void deleteUser(UserModel userModel){
         userRepo.deleteUser(userModel);
@@ -37,8 +38,22 @@ public class UserViewModel extends ViewModel {
         userRepo.updateUser(userModel);
    }
 
-    public LiveData<List<UserModel>> getUserById(int[] userIds) {
-        return (LiveData<List<UserModel>>) userRepo.getUserById(userIds);
+    public LiveData<List<UserModel>> getallUsers() {
+        return userRepo.getAllUSers();
+    }
+
+   public List<UserModel> getEmailAndPass(String email,String pass){
+        return userRepo.getEmailAndPass(email,pass);
+   }
+
+    public List<UserModel> getEmail(String email) {
+        return  userRepo.getEmail(email);
+    }
+
+
+
+    public List<UserModel> getUserById(long userIds) {
+        return  userRepo.getUserById(userIds);
     }
 
 }

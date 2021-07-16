@@ -1,6 +1,8 @@
 package com.codeinger.technorizentask.repository;
 
 
+import androidx.lifecycle.LiveData;
+
 import com.codeinger.technorizentask.data.room.UserDao;
 import com.codeinger.technorizentask.model.UserModel;
 
@@ -18,8 +20,8 @@ public class UserRepo {
     }
 
 
-    public void addUser(UserModel... userModels) {
-        userDao.addtUser(userModels);
+    public long addUser(UserModel userModels) {
+        return userDao.addtUser(userModels);
     }
 
     public void updateUser(UserModel... userModels) {
@@ -30,9 +32,20 @@ public class UserRepo {
         userDao.deleteUser(userModels);
     }
 
+    public LiveData<List<UserModel>> getAllUSers(){
+        return userDao.getAllUSers();
+    }
 
-   public List<UserModel> getUserById(int[] userIds) {
+   public List<UserModel> getUserById(long userIds) {
         return userDao.getUserById(userIds);
+    }
+   public List<UserModel> getEmailAndPass(String email,String pass) {
+        return userDao.getEmailAndPass(email,pass);
+    }
+
+
+    public List<UserModel> getEmail(String email) {
+        return userDao.getEmail(email);
     }
 
 

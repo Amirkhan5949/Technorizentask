@@ -9,4 +9,15 @@
     <string name="in">Sign In!</string>
     <string name="pass">Enter correct password</string>
     <string name="corr">Enter correct email</string>
+    <string name="done">Done</string>
+    <string name="hello">Hello</string>
+    <string name="signup">Sign Up!!</string>
+    <string name="name">Name</string>
+    <string name="last">Last Name</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="lastname">Enter Last Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rate">Rate</string>
+    <string name="add_product">Add Product</string>
 </resources>

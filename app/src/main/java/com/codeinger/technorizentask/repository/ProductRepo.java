@@ -32,12 +32,8 @@ public class ProductRepo {
     }
 
 
-   public List<ProductModel> getProductById(int[] userIds) {
+   public LiveData<List<ProductModel>> getProductById(long userIds) {
         return productDao.getProductById(userIds);
-    }
-
-    public LiveData<List<ProductModel>> getallProducts(){
-        return productDao.getAllProducts();
     }
 
 

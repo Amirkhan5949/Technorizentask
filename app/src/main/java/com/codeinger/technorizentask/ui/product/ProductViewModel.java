@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.codeinger.technorizentask.model.ProductModel;
+import com.codeinger.technorizentask.model.UserModel;
 import com.codeinger.technorizentask.repository.ProductRepo;
+import com.codeinger.technorizentask.utils.SharedPrefsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +19,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 @HiltViewModel
 public class ProductViewModel extends ViewModel {
     private ProductRepo productRepo;
-    private MutableLiveData<ArrayList<ProductModel>> mutableLiveData = new MutableLiveData<>();
-    private LiveData<List<ProductModel>> liveData = null;
+    public LiveData<List<ProductModel>> liveData = new MutableLiveData<>();
 
     @Inject
     public ProductViewModel(ProductRepo productRepo) {
+        UserModel model= SharedPrefsManager.getInstance().getObject("Users_info",UserModel.class);
         this.productRepo = productRepo;
+        getProductById(model.getU_id());
     }
 
     public void addProduct(ProductModel product){
         productRepo.addProduct(product);
     }
+
     public void deleteProduct(ProductModel product){
         productRepo.deleteProduct(product);
     }
@@ -36,12 +40,10 @@ public class ProductViewModel extends ViewModel {
         productRepo.updateProduct(product);
     }
 
-    public LiveData<List<ProductModel>> getProductById(int[] userIds) {
-        return (LiveData<List<ProductModel>>) productRepo.getProductById(userIds);
+    public void getProductById(long userIds) {
+        liveData = productRepo.getProductById(userIds);
     }
 
-    public LiveData<List<ProductModel>> getallProducts() {
-        return productRepo.getallProducts();
-    }
+
 
 }

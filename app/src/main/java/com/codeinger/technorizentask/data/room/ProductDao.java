@@ -25,11 +25,9 @@ public interface ProductDao {
     @Delete
     public void deleteProduct(ProductModel... products);
 
-    @Query("SELECT * FROM ProductModel WHERE U_id IN (:userIds)")
-    List<ProductModel> getProductById(int[] userIds);
+    @Query("SELECT * FROM ProductModel WHERE U_id = (:userIds)")
+    LiveData<List<ProductModel>> getProductById(long userIds);
 
 
-    @Query("SELECT * FROM productmodel ORDER BY P_id ASC")
-     LiveData<List<ProductModel>> getAllProducts();
 
 }

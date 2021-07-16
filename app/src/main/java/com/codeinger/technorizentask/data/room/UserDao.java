@@ -19,20 +19,26 @@ import java.util.List;
 public interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void addtUser(UserModel... users);
+    public Long addtUser(UserModel users);
 
     @Update
     public void  updateUser(UserModel... users);
 
     @Delete
-     public void deleteUser(UserModel... users);
+    public void deleteUser(UserModel... users);
 
 
-    @Query("SELECT * FROM user_table WHERE U_id IN (:userIds)")
-    List<UserModel> getUserById(int[] userIds);
+    @Query("SELECT * FROM UserModel WHERE U_id = (:userIds)")
+    List<UserModel> getUserById(long userIds);
 
-//    @Query("SELECT * FROM user_table ORDER BY U_id ASC")
-//    LiveData<List<UserModel>> getAllUsers();
+    @Query("SELECT * FROM UserModel ORDER BY U_id ASC")
+    LiveData<List<UserModel>> getAllUSers();
+
+    @Query("SELECT * FROM UserModel WHERE email = (:email) AND password = (:pass)")
+    List<UserModel> getEmailAndPass(String email,String pass);
+
+    @Query("SELECT * FROM UserModel WHERE email = (:email)")
+    List<UserModel> getEmail(String email);
 
 
 }

@@ -4,24 +4,26 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = {@ForeignKey(entity = UserModel.class,
+@Entity(foreignKeys = @ForeignKey(entity = UserModel.class,
         parentColumns = "U_id",
         childColumns = "U_id",
         onDelete = ForeignKey.CASCADE)
-
-})
+)
 public class ProductModel {
     @PrimaryKey(autoGenerate = true)
     private int P_id ;
     private String name,price,description;
-    private int U_id ;
+    private long U_id ;
 
-    public ProductModel(int p_id, String name, String price, String description, int u_id) {
+    public ProductModel() {
+    }
+
+    public ProductModel(int p_id, String name, String price, String description, long U_id) {
         P_id = p_id;
         this.name = name;
         this.price = price;
         this.description = description;
-        U_id = u_id;
+        this.U_id = U_id;
     }
 
     @Override
@@ -67,12 +69,12 @@ public class ProductModel {
         this.description = description;
     }
 
-    public int getU_id() {
+    public long getU_id() {
         return U_id;
     }
 
-    public void setU_id(int u_id) {
-        U_id = u_id;
+    public void setU_id(long U_id) {
+        this.U_id = U_id;
     }
 }
 
